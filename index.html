@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete responsive flower website design</title>
+</head>
+<style>
+    :root{
+   --pink:#e84393;
+}
+*{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: verdana, Geneva, Tahoma, sans-serif;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+section{
+    padding:2 rem 9%;
+}
+
+/* aaaaaaa */
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    color: #333;
+    padding: 1rem;
+    margin: 2rem 0;
+    background: rgba(255, 51, 153,.05);
+}
+
+.heading span{
+    color: var(--pink);
+
+}
+
+.btn{
+    display: inline-block;
+    margin-top:1 rem;
+    border-radius:5 rem;
+    background: #333;
+    color: #fff;
+    padding:.9 rem 3.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+.btn.hover{
+    background: var(--pink);
+}
+
+header{
+   position: fixed;
+   top: 0;  left: 0; right:0;
+   background: #fff;
+   padding: 2rem 9%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   z-index: 1000;
+   box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .logo{
+    font-size: 3rem;
+    color:#333;
+    font-weight: bolder;
+}
+
+header .logo span{
+    color:var(--pink);
+}
+
+header .navbar a{
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    color: #666;
+}
+
+header .navbar a:hover{
+    color: var(--pink); /* nav bar text uppar color */
+}
+
+header .icons a{
+    font-size: 3rem;
+    color: #333;
+    margin-left: 1.5rem;
+}
+
+header.icons a:hover{
+    color: var(--pink);
+}
+
+header #toggler{
+    display: none;
+}
+
+header .fa-bars{
+    font-size:3rem;
+    color: #333;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    border: 1rem solid rgba(0,0,0,.3);
+    display: none;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: url(https://images.unsplash.com/photo-1455819413567-ef04b7e1fe3d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTUwfHxmbG93ZXIlMjBib3VxdWV0JTIwZmxvd2VyJTIwZ2lybHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60);
+    background-size: cover;
+    background-position: center;
+}
+
+.home .content{
+    max-width: 50rem;
+}
+.home .content{
+    font-size: 1.5rem;
+    color:var(--pink);
+}
+.home .content.span{
+    font-size: 3.5rem;
+    color:var(--pink);
+    padding: 1rem 0;
+    line-height: 1.5;
+}
+.home .content span{
+    font-size: 1.5rem;
+    color: lightgray;
+    padding: 1rem 0;
+    line-height: 1.5;
+}
+
+.about .row{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding:2rem 0;
+    padding-bottom: 3rem;
+}
+.about .row .video-container{
+    flex:1 1 40rem;
+    position: relative;
+}
+.about .row .video-container video{
+    width: 100%;
+    border: 1.5rem solid #fff;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    height: 100%;
+    object-fit: cover;
+}
+.about.row .video-container h3{
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    font-size: 3rem;
+    background: #fff;
+    width: 100%;
+    padding: 1rem 2rem;
+    text-align: center;
+    mix-blend-mode: screen;
+}
+.about .row .content{
+    flex:1 1 40rem;
+}
+.about .row .content h3{
+    font-size: 3rem;
+    color: #333;
+}
+.about .row .content p{
+    font-size: 1.5rem;
+    color: #999;
+    padding:5rem 0;
+    padding-top:1rem;
+    line-height:1.5rem;
+}
+
+.icons-container{
+    background: #eee;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.icons-container .icons{
+    background:#fff;
+    border: 1rem solid rgba(0,0,0,.1);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    flex: 1 1 25rem;
+}
+.icons-container .icons img{
+    height: 5rem;
+    margin-right: 2rem;
+}
+.icons-container .icons h3{
+    color: #333;
+    padding-bottom: .5rem;
+    font-size: 1.5rem;
+}
+.icons-container .icons span{
+    color: #555;
+    font-size: 1.3rem;
+}
+
+.products .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.products .box-container .box{
+    flex: 1 1 30rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+    border: 1rem solid rgba(0,0,0,.1);
+    position: relative;
+}
+.products .box-container .box .discount{
+  position: absolute;
+  top: 1rem; left: 1rem;
+  padding: 7rem 1rem;
+  font-size: 2rem;
+  color: var(--pink);  
+  z-index: 1;
+  border-radius: .5rem;
+}
+.products .box-container .box .image{
+    position: relative;
+    text-align: center;
+    padding-top: 2rem;
+    overflow: hidden;
+}
+.products .box-container .box .img{
+    height: 25rem;
+}
+.products .box-container .box.hover .img{
+    transform: scale(1.1);
+}
+.products .box-container .box .image .icons{
+   position: absolute;
+    bottom: -7rem;left: 0; right: 0;
+    display: flex;
+}
+.products .box-container .box:hover .image .icons{
+    bottom: 0;
+}
+.products .box-container .box .image .icons a{
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    width: 50%;
+    background: var(--pink);
+    color: #fff;
+}
+.products .box-container .box .image .icons .cart-btn{
+   border-left: .1rem solid #fff7;
+   border-right: .1rem solid #fff7;
+   width: 100%; 
+}
+.products .box-container .box .image .icons a:hover{
+    background: #333;
+}
+.products .box-container .box .content{
+    padding: 2rem;
+    text-align: center;
+}
+.products .box-container .box .content h3{
+    font-size: 2.5rem;
+    color: #333;
+}
+.products .box-container .box .content .price{
+    font-size: 2.5rem;
+    color: var(--pink);
+    font-weight: bolder;
+    padding-top: 1rem;
+}
+.products .box-container .box .content .price span{
+    font-size: 2.5rem;
+    color: #999;
+    font-weight: lighter;
+    padding-top: 1rem;
+    text-decoration:line-through ;
+}
+/* more */
+.h4{
+    text-align: center;
+    align-items: center;
+    color: #999;
+    text-shadow: #e84393;
+    text-decoration: solid;
+}
+.h2{
+    text-align: center;
+    align-items: center;
+    color: #333;
+    border: #e84393;
+    border-radius: 2rem;
+    padding-top: 1rem;
+    padding-left: .5rem;
+    padding-bottom: 1rem;
+    padding-right: .5rem;
+}
+.slider {
+        width: 500px;
+        height: 300px;
+        background-color: yellow;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0px;
+        text-align: center;
+        overflow: hidden;
+      }
+      .image-container {
+        width: 1500px;
+        background-color: pink;
+        height: 300px;
+        clear: both;
+        position: relative;
+        -webkit-transition: left 2s;
+        -moz-transition: left 2s;
+        -o-transition: left 2s;
+        transition: left 2s;
+      }
+      .slide {
+        float: left;
+        margin: 0px;
+        padding: 0px;
+        position: relative;
+      }
+      #slide-1:target ~ .image-container {
+        left: 0px;
+      }
+      #slide-2:target ~ .image-container {
+        left: -500px;
+      }
+      #slide-3:target ~ .image-container {
+        left: -1000px;
+      }
+      .buttons {
+        position: relative;
+        top: -20px;
+      }
+      .buttons a {
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        border-radius: 50px;
+        background-color: lightgreen;
+      }
+
+.review .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.review .box-container .box{
+    flex: 1 1 30rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+    padding: 3rem 2rem;
+    position: relative;
+    border: 1rem solid rgba(0,0,0,.1);
+}
+.review .box-container .box .fa-quote-right{
+    position: absolute;
+    bottom: 3rem; right: 3rem;
+    font-size: 6rem;
+    color: #eee;
+}
+.review .box-container .box .stars i{
+    color: var(--pink);
+    font-size: 2rem;
+}
+.review .box-container .box p{
+    color: #999;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-top: 2rem;
+}
+.review .box-container .box .user{
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+}
+.review .box-container .box .user img{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+.review .box-container .box .user h3{
+    font-size: 2rem;
+    color: #333;
+}
+.review .box-container .box .user span{
+    font-size: 1.5rem;
+    color: #999;
+}
+
+
+
+.contact .row{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 1.5rem;
+    align-items:center;
+}
+.contact .row form{
+    flex: 1 1 40rem;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border: 1rem solid rgba(0,0,0,.1);
+    background: #fff;
+    border-radius: .5rem;
+}
+.contact .row .image{
+    flex: 1 1 40rem;
+}
+.contact .row .image img{
+    width:100%;
+}
+.contact .row form .box{
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: #333;
+    text-transform: none;
+    border: 1rem solid rgba(0,0,0,.1);
+    border-radius: .5rem;
+    margin: .7rem 0;
+    width: 100%;
+}
+.contact .row form .box:focus{
+    border-color: var(--pink);
+}
+.contact .row form textarea{
+    height: 15rem;
+    resize: none;
+}
+
+/* footer part */
+
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.footer .box-container .box{
+    flex: 1 1 25rem;
+}
+.footer .box-container .box h3{
+    color: #333;
+    font-size: 2.5rem;
+    padding: 1rem 0;
+}
+.footer .box-container .box a{
+    display: block;
+    color: #666;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+.footer .box-container .box a:hover{
+    color: var(--pink);
+    text-decoration: underline;
+}
+.footer .box-container .box img{
+    margin-top: 1rem;
+}
+.footer .credit{
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 2.5rem;
+    font-size: 2rem;
+    color: #333;
+    border-top: .1rem solid rgba(0,0,0,.1);
+}
+.footer .credit span{
+    color: var(--pink);
+}
+
+
+/* Detailas css section */
+.details{
+    border-style: solid;
+    border-color: #333;
+    border-radius: 12px;
+    padding: 30px;
+}
+.details summary{
+    text-align: center;
+    color: black;
+}
+.details p{
+    text-align: center;
+    color: blue;
+}
+.size{
+    text-align: center;
+}
+.size h1{
+    color: var(--pink);
+}
+.size h2{
+    color: #333;
+}
+
+
+/* silk flower */
+.booknow{
+    text-align: center;
+}
+.silk{
+    border-style: solid;
+    border-radius: 10px;
+    color: #999
+}
+
+/* card section start */
+/* CSS for the container */
+.container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    /* CSS for the card */
+    .card {
+      width: 500px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    /* CSS for the card image */
+    .card-image {
+      width: 475px;
+      height: 475px;
+      border-radius: 100%;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    
+    /* CSS for the card title */
+    .card-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    /* CSS for the card content */
+    .card-content {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    
+    /* CSS for the button */
+    .card-button {
+      background-color: #ff4081;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .card-button:hover {
+      background-color: #ff80ab;
+    }
+/* card section end */
+
+
+
+/* media queries */
+@media (max-width:767px){
+
+    html{
+    font-size: 55%;
+    
+}
+header{
+    padding: 2rem;
+}
+
+section{
+    padding: 2rem;
+}
+
+.home{
+    background-position: left;
+}
+}
+
+@media (max-width:767px){
+    html .fa-bars{
+        display: block;
+    }
+    header .navbar{
+        position:absolute;
+         top:100; left:0; right:0;
+         background:#eee ;
+         border-top:.1rem solid rgba(0,0,0,.1) ;
+         clip-path: polygon(0 0,100% 0, 100% 0, 0 0);
+    }
+
+    .headr .navbar a{ 
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background:#fff ;
+        border:1rem solid rgba(0,0,0,.1) ;
+        display: block;
+    } */
+
+    header #toggler:checked ~ .navbar{
+        clip-path: polygon(0 0,100% 0, 100% 100%, 0% 100%);
+    }
+
+    header.navbar a{
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: #fff;
+        border: 1rem solid rgba(0,0,0,.1);
+        display: block;
+    }
+    .home .content h3{
+        font-size: 5rem;
+    }
+    .home .content span{
+        font-size: 2.5rem;
+    }
+    .icons-container .icons h3{
+    font-size: 2rem;
+}
+.icons-container .icons span{
+    font-size: 1.7rem;
+
+}
+}
+
+
+
+
+@media (max-width:450px){
+
+html{
+font-size: 50%;
+
+}
+.heading{
+    font-size: 3rem;
+}
+}
+
+
+</style>
+<body>
+    <!-- Flower awesome cdn link -->
+    <link rel="stylesheet" href="link rel="stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- custome css file link -->
+        <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+
+
+<!-- Header section start -->
+<header>
+
+    <input type="checkbox" name="" id="toggler">
+    <lable for="toggler" class="fas fa-bars"></i></lable>
+    <a href="#" class="logo">Bloom & Blossom<span>.</span></a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#products">products</a>
+        <a href="#review">review</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+    <div class="icons">
+        <a href="#" class="fas fa-heart"><img src="https://purepng.com/public/uploads/large/heart-icon-y1k.png " height="25" alt=""></a>
+        <a href="#" class="fas fa-shopping-cart"><img src="https://webstockreview.net/images/shopping-cart-icon-png-7.png" height="25" alt=""></a>
+        <a href="#" class="fas fa-user"><img src="https://rusautolack.ru/themes/ral2020/assets/img/icon_user_red.png" height="25" alt=""></a>
+    </div>
+
+</header>
+<!-- header section end -->
+
+
+<!-- home section start -->
+
+<section class="home" id="home">
+    <div class="content">
+    <h3>Fresh flowers</h3>
+    <span>Natural & Beautiful flowers</span>
+    <p>Your bucket is just one step away from you.<br>Our service is avaliable at Jharsuguda, Sambalpur, Sundargarh, Rourkela.<br><br></p>
+         <a href="#" class="btn"><b>Bloom & Blossom</b></a>
+         </div>
+</section>
+<!-- home section end -->
+
+<!-- About section start -->
+<section class="about" id="about">
+
+    <h1 class="heading"> <span> about </span> us </h1>
+
+    <div class="row">
+
+        <div class="video-container">
+            
+            <video src="flowers.mp4" loop autoplay muted repeat height="225vh"></video>
+        </div>
+
+        <div class="content">
+            <h3>Why choose us?</h3>
+            <p>You can customize your order according to your liking and add some special touches like personalized messages or add-ons.<br><br>
+                You can benefit from convenient, cost-effective, and time-saving delivery services that bring the flowers to your doorstep or to your loved ones<br><br>
+                You can avail of same-day delivery services in case of emergencies or last-minute orders</p>
+            <p>You can also get some offers and discounts from time to time that make your online flower shopping more affordable and enjoyable</p>
+            <a href="#" class="btn">Learn more</a>
+        </div>
+    </div>
+</section>
+<!-- About section end -->
+
+<!-- Icon sections start -->
+<section class="icons-container">
+
+    <div class="icons">
+        <img src="https://th.bing.com/th/id/R.c734b08b100a85087bf4361e80afcfbb?rik=K%2bct%2ftGNX7PvIg&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f7%2fDelivery-Transparent-PNG.png&ehk=W9z7EeUL77kAOEARBN9vZZbVHyG%2fhR9YmoGa8EJFzWE%3d&risl=&pid=ImgRaw&r=0" alt="">
+        <div class="info">
+            <h3>Free delivery</h3>
+            <span>on all orders</span>
+        </div>
+    </div>
+
+    <div class="icons">
+        <img src="https://th.bing.com/th/id/R.4d2fcc239e96d16c0b2733b07702069a?rik=%2fWoknoIO3pgZQQ&riu=http%3a%2f%2fhowardpartridge.com%2fwp-content%2fuploads%2f2015%2f08%2fmoney-back-guarantee.png&ehk=kN9XinpgIIfoh2mhmMsiskGkI7ayn8GlpRgcxJaP0kM%3d&risl=&pid=ImgRaw&r=0" alt="">
+        <div class="info">
+            <h3>3 hours return</h3>
+            <span>money back gurantee</span>
+        </div>
+    </div>
+
+    <div class="icons">
+        <img src="https://www.freepnglogos.com/uploads/gift-png/two-red-gift-boxes-png-clipart-image-gallery-23.png" alt="">
+        <div class="info">
+            <h3>Offer & gifts</h3>
+            <span>on special ocesion</span>
+        </div>
+    </div>
+
+    <div class="icons">
+        <img src="https://cdn.freebiesupply.com/logos/large/2x/paypal-icon-logo-png-transparent.png" alt="">
+        <div class="info">
+            <h3>Secure Payments</h3>
+            <span>protected by paypal</span>
+        </div>
+    </div>
+</section>
+<!-- Icon sections end -->
+
+<!-- product section start -->
+<section class="products" id="products">
+
+    <h1 class="heading"> latest <span> products </span></h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="https://images.pexels.com/photos/3608751/pexels-photo-3608751.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart">Like</a>
+                    <a href="http://localhost/flower_phpcode/index.php" class="cart-btn">Buy now</a>
+                    <a href="#" class="fas fa-share">Share</a>
+                </div>
+            </div>
+
+            <div class="content">
+                <h3>flower pot</h3>
+                <div class="price">rs.899<span>rs.1499</span></div>
+            </div>
+        </div>
+        <div class="box">
+            <span class="discount">-15%</span>
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1553578622-34d24027ce18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGZsb3dlciUyMGJvdXF1ZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart">Like</a>
+                    <a href="http://localhost/flower_phpcode/index.php" class="cart-btn">Buy now</a>
+                    <a href="#" class="fas fa-share">Share</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>flower pot</h3>
+                <div class="price">rs.799<span>  rs.999</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1572936773862-7e13d432c582?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fGZsb3dlciUyMGJvdXF1ZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart">Like</a>
+                    <a href="http://localhost/flower_phpcode/index.php" class="cart-btn">Buy now</a>
+                    <a href="#" class="fas fa-share">Share</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>flower pot</h3>
+                <div class="price">rs.299<span>rs.449</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-18%</span>
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1591950541929-6bf67027f403?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODR8fGZsb3dlciUyMGJvdXF1ZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart">Like</a>
+                    <a href="http://localhost/flower_phpcode/index.php" class="cart-btn">Buy now</a>
+                    <a href="#" class="fas fa-share">Share</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>flower pot</h3>
+                <div class="price">rs.199<span>rs.399</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-12%</span>
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1583238916902-ed999db0766b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTAyfHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart">Like</a>
+                    <a href="http://localhost/flower_phpcode/index.php" class="cart-btn">Buy now</a>
+                    <a href="#" class="fas fa-share">Share</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>flower pot</h3>
+                <div class="price">rs.499<span>rs.699</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-20%</span>
+            <div class="image">
+                <img src="https://images.pexels.com/photos/1233442/pexels-photo-1233442.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart">Like</a>
+                    <a href="http://localhost/flower_phpcode/index.php" class="cart-btn">Buy now</a>
+                    <a href="#" class="fas fa-share">Share</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>flower pot</h3>
+                <div class="price">rs.349<span>rs.499</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<!-- product section end -->
+
+<!-- image slider section start -->
+<!-- <div class="h4">
+<h1>more products</h1>
+</div>
+<div class="slider">
+    <span id="slide-1"></span>
+    <span id="slide-2"></span>
+    <span id="slide-3"></span>
+    <div class="image-container">
+     <a href="#"><img src="https://images.unsplash.com/photo-1482715091246-822e47d61e1c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60" class="slide" width="500" height="300" /></a>
+     <a href="#"><img src="https://images.unsplash.com/reserve/xd45Y326SvKzSR3Nanc8_MRJ_8125-1.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60" class="slide" width="500" height="300" /></a>
+     <a href="#"><img src="https://images.unsplash.com/photo-1464885602181-3d7835717ec1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zmxvd2VycyUyMGJ1Y2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" class="slide" width="500" height="300" /></a>
+    </div>
+    <div class="buttons">
+      <a href="#slide-1"></a>
+      <a href="#slide-2"></a>
+      <a href="#slide-3"></a>
+    </div>
+  </div>
+<br> -->
+<!-- image slider section end -->
+
+<!-- card section start -->
+
+    <!-- aniversery section -->
+<div class="size">
+    <h1>Anniversary</h1><h2>special</h2><br>
+    </div>
+
+<div class="container">
+    <div class="card">
+      <div class="card-image">
+        <img src="https://images.pexels.com/photos/935789/pexels-photo-935789.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Card Image">
+      </div>
+      <h2 class="card-title">white love</h2>
+      <p class="card-content">We deliver white flowrs with unique design for impress your betterhalf.try it once.</p>
+      <button class="card-button"><a href="http://localhost/flower_phpcode/index.php">order now</a></button>
+    </div>
+  
+    <div class="card">
+      <div class="card-image">
+        <img src="https://images.pexels.com/photos/15283453/pexels-photo-15283453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Card Image">
+      </div>
+      <h2 class="card-title">pink.red love</h2>
+      <p class="card-content">As everyone prefer red or pink flowers for his/her partner we provide variety of choices.</p>
+      <button class="card-button"><a href="http://localhost/flower_phpcode/index.php">order now</a></button>
+    </div>
+<p>Step into our enchanted garden of love, where each blossom carries a story, and every petal whispers the language of your heart. Let our flowers be the bridge that connects your emotions, as we create a masterpiece of beauty and affection to captivate your beloved on this enchanting Valentine's Day."</p><br><br><br>
+<!-- Aniversary section end -->
+    <!-- Birthday section start -->
+    <div class="size">
+        <h1>Birthday</h1><h2>special</h2><br>
+        </div>
+    
+    <div class="container">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.pexels.com/photos/12689143/pexels-photo-12689143.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Card Image">
+          </div>
+          <h2 class="card-title">Rose decorate</h2>
+          <p class="card-content">As customer requirement we provide the facilities of flower decoration.</p>
+          <button class="card-button"><a href="http://localhost/flower_phpcode/index.php">order now</a></button>
+        </div>
+      
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.pexels.com/photos/14457403/pexels-photo-14457403.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Card Image">
+          </div>
+          <h2 class="card-title">others</h2>
+          <p class="card-content">As customer requirement we provide the facilities of flower decoration.</p>
+          <button class="card-button"><a href="http://localhost/flower_phpcode/index.php">order now</a></button>
+        </div><br>
+        <p>"Embrace the essence of joy and celebration as you choose the perfect bloom to adorn the special day of your loved one. Let our exquisite flowers become the living embodiment of your wishes, spreading fragrant petals of happiness and creating a vibrant tapestry of unforgettable moments. With our flowers, every birthday will bloom with love and enchantment."</p><br><br><br><br>
+    <!-- Birthday section end -->
+<!-- card section end -->
+
+<!-- image editor section start -->
+<div class="silk">
+    <a href="file:///C:/Users/hp/Desktop/websites/img_editor.html">
+    <h2>For silk flowers | paper flowers | permanent botanicals and faux flowers decoration customize products as your own. We will deliver as your choice.</h2>
+    </a>
+    <br>
+    <a href="file:///C:/Users/hp/Desktop/websites/quiz_code.html">
+        <h2>Answers of all q's correct and get a channce to win gifts</h2>
+    </a>
+</div>
+<!-- image editor section end-->
+
+<!-- Review section start -->
+<section class="review" id="review">
+
+    <h1 class="heading">customer's <span>review</span></h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>Onlineflowershop is the first place I go to whenever I need to send gifts.
+                They are always on time and all their products match exactly as the picture, great quality.
+                If there is any clarification needed, they won't hesitate in calling me internationally. I have been using them for 3 years and will continue to do so.</p>
+            <div class="user">
+                <img src="https://pbs.twimg.com/media/Fv4DArwaMAAzmy4?format=jpg&name=small" alt="">
+                <div class="user-info">
+                    <h3>Pratibha patel</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>The flowers were lovely, and the ordering process was excellent. However, the card was missing, and the delivery person couldn't tell the receiver who it was from. This was disappointing.</p>
+            <div class="user">
+                <img src="https://pbs.twimg.com/media/Fv4EBxTaMAYGzpe?format=jpg&name=900x900" alt="">
+                <div class="user-info">
+                    <h3>Nikita Dandapat</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>Quick and easy to order, especially from the UK and lots of options. Delivered on time to the instructions left. Truly beautiful bouquet.</p>
+            <div class="user">
+                <img src="https://pbs.twimg.com/media/Fv4DAr2aEAAZyLi?format=jpg&name=small" alt="">
+                <div class="user-info">
+                    <h3>Ankita Nayak</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>It was the first time I ordered online from outside UAE. The flowers arrived during the time I picked and our daughter sent pic and they were beautiful. It made her day. Would definitely order from here again. Highly recommended</p>
+            <div class="user">
+                <img src="https://images.unsplash.com/photo-1677890975420-6518baceda27?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NDN8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="">
+                <div class="user-info">
+                    <h3>Sudeep Nayak</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>Buying flowers from just a picture on line is always a worry as to what will actually turn up on time.
+                I have to saythe recipient was very happy with both flower arrangements as was I. They surpassed my expectations. Thank you very much indeed.
+                Easy to order, arrived well on time and beautiful flowers. Thank you once again.</p>
+            <div class="user">
+                <img src="https://pbs.twimg.com/media/Fv4DAtnaYAASJFA?format=jpg&name=small" alt="">
+                <div class="user-info">
+                    <h3>Pritam Kumar Patel</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>I sent my daughter some flowers who lives in Dubai - they were beautiful and delivered really quickly the same day. The flowers were delivered without a card by the delivery driver, I let the company know who the same day delivered another set of flowers with the card - Excellent customer service - thank you</p>
+            <div class="user">
+                <img src="https://images.unsplash.com/photo-1675796483921-6a36088a7fc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60" alt="">
+                <div class="user-info">
+                    <h3>Rakesh Sahoo</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>Really fast delivery, flowers looked great but didn't last 3 days before starting to droop and die, not a happy recipient</p>
+            <div class="user">
+                <img src="https://pbs.twimg.com/media/Fv4DAslaMAEMtkm?format=jpg&name=small" alt="">
+                <div class="user-info">
+                    <h3>Anurag Patel</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+    </div>
+</section>
+<!-- Review section end -->
+
+<!-- Questions answers Section start -->
+<div class="size">
+<h1>Commonly asked</h1><h2>Questions</h2><br>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="details">
+    <details>
+    <Summary><b>How do i place an order on your website ?</b></Summary>
+    <h3>Once you find the perfect one click on add to cart and then go to cart and place order.</h3><br><br>
+</details>
+</div><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="details">
+<details>
+    <Summary><b>Do you offer same day delivery ?</b></Summary>
+    <h3>If the distance is in between 25km then it's possible for same day delivery.</h3>
+</details>
+</div><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="details">
+    <details>
+        <Summary><b>What payment method do you accept ?</b></Summary>
+        <h3>Cash on delivery only.</h3>
+    </details>
+    </div><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="details">
+        <details>
+            <Summary><b>Are there any aditional charges for delivery ?</b></Summary>
+            <h3>If your distance is 15km above then 1.75 rupees per km is added as delivery charges.</h3>
+        </details>
+        </div><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="details">
+            <details>
+                <Summary><b>Can I include a personalized message with my flower order ?</b></Summary>
+                <h3>yes ! why not. We are here for satisfy our customer.</h3>
+            </details>
+            </div><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <div class="details">
+                <details>
+                    <Summary><b>What is your return or refund policy ?</b></Summary>
+                    <h3>Average 3 hours return police is avaliable but it's varies from product to product. And 25% charges will be cut up from your return back money.</h3>
+                </details>
+                </div><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <div class="details">
+                    <details>
+                        <Summary><b>Do you offer flower arrangements for special ocessions like weddings ?</b></Summary>
+                        <h3>Yes !</h3>
+                    </details>
+                    </div><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <div class="details">
+                        <details>
+                            <Summary><b>Do you offer any add-ons like chocolstes or baloons with the flower arrangement ?</b></Summary>
+                            <h3>Yes !</h3>
+                        </details>
+                        </div>
+<!--Questions answers Section end  -->
+
+<!-- Contact section start -->
+<section class="contact" id="contact">
+
+    <h1 class="heading"><span> contact </span> us </h1>
+
+    <div class="row">
+
+        <form action="">
+            <input type="text" placeholder="name" class="box">
+            <input type="email" placeholder="email" class="box">
+            <input type="number" placeholder="number" class="box">
+            <textarea name="" class="box" placeholder="message" id="" cols="30" rows="10"></textarea>
+            <input type="submit" value="send message" class="btn">
+        </form>
+
+         <div class="image">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.995246582146!2d85.70367367392657!3d20.1759234165259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19aec948fe62ef%3A0xb6c968c7957b6b4f!2sCenturion%20University%20of%20Technology%20%26%20Management%2C%20Bhubaneswar!5e0!3m2!1sen!2sin!4v1683837463583!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <!-- <img src="https://images.unsplash.com/photo-1617316700574-a4ef3f059257?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQyfHxmbG93ZXIlMjBzaG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt=""> -->
+        </div>
+    </div>
+</section>
+<!-- Contact section end -->
+
+<!-- footer section start -->
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">about</a>
+            <a href="#">products</a>
+            <a href="#">review</a>
+            <a href="#">contact</a>
+        </div>
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="#">my account</a>
+            <a href="#">my order</a>
+            <a href="#">my favourite</a>
+        </div>
+        <div class="box">
+            <h3>locations</h3>
+            <a href="#">Jharsuguda</a>
+            <a href="#">Sambalpur</a>
+            <a href="#">Sundargarh</a>
+            <a href="#">Rourkela</a>
+        </div>
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="tel: +91-784-893-5854" target="_main">+91-784-893-5854<i class="fab fa-phone"></i></a>
+            <a href="mailto:pritamkumarpatel1212@gmail.com">pritamkumarpatel1212@gmail.com<i class="fas fa-envelope"></i></a>
+    </footer><hr>
+            <a href="https://www.bing.com/search?pglt=41&q=jharsuguda&cvid=c23c0e4f679d4d5da91478ed79e6cf76&aqs=edge.0.0j69i57j46j0l4j46j69i60.5155j0j1&FORM=ANNTA1&PC=HCTS">Jharsuguda, Odisha - 768204</a>
+            <img src="#" alt="">
+        </div>
+    </div>
+
+    <!-- <div class="credit">created by <span> Pritam Kumar Patel</span> | all rights reserved</div> -->
+
+</section>
+<!-- Footer section end -->
+
+</body>
+</html>
